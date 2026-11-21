@@ -1,9 +1,18 @@
 "use client";
 
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useSyncExternalStore,
+} from "react";
 import { MotionConfig } from "framer-motion";
 
 type Theme = "dark" | "light";
+
+const STORAGE_KEY = "chandan-portfolio-theme";
+const THEME_EVENT = "chandan-theme-change";
 
 interface ThemeContextValue {
   theme: Theme;
@@ -15,27 +24,41 @@ const ThemeContext = createContext<ThemeContextValue>({
   toggleTheme: () => {},
 });
 
+function subscribeTheme(callback: () => void) {
+  window.addEventListener("storage", callback);
+  window.addEventListener(THEME_EVENT, callback);
+  return () => {
+    window.removeEventListener("storage", callback);
+    window.removeEventListener(THEME_EVENT, callback);
+  };
+}
+
+function getThemeSnapshot(): Theme {
+  const stored = window.localStorage.getItem(STORAGE_KEY);
+  return stored === "light" ? "light" : "dark";
+}
+
+function getServerSnapshot(): Theme {
+  return "dark";
+}
+
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>("dark");
+  const theme = useSyncExternalStore(
+    subscribeTheme,
+    getThemeSnapshot,
+    getServerSnapshot
+  );
 
   useEffect(() => {
-    const stored = window.localStorage.getItem("chandan-portfolio-theme") as Theme | null;
-    if (stored === "light" || stored === "dark") {
-      setTheme(stored);
-      document.documentElement.setAttribute("data-theme", stored);
-    } else {
-      document.documentElement.setAttribute("data-theme", "dark");
-    }
-  }, []);
+    document.documentElement.setAttribute("data-theme", theme);
+  }, [theme]);
 
-  const toggleTheme = () => {
-    setTheme((prev) => {
-      const next = prev === "dark" ? "light" : "dark";
-      document.documentElement.setAttribute("data-theme", next);
-      window.localStorage.setItem("chandan-portfolio-theme", next);
-      return next;
-    });
-  };
+  const toggleTheme = useCallback(() => {
+    const next: Theme = theme === "dark" ? "light" : "dark";
+    window.localStorage.setItem(STORAGE_KEY, next);
+    document.documentElement.setAttribute("data-theme", next);
+    window.dispatchEvent(new Event(THEME_EVENT));
+  }, [theme]);
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
