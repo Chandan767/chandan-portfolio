@@ -10,7 +10,7 @@ export const profile = {
   github: "https://github.com/Chandan767",
   linkedin: "https://linkedin.com/in/chandan767",
   resumePath: "/resume/Chandan_Resume.pdf",
-  siteUrl: "https://chandan-portfolio.vercel.app",
+  siteUrl: "https://chandan-portfolio-rose.vercel.app",
   contextStrip: [
     { label: "Location", value: "Bengaluru, IN (Remote & Hybrid)" },
     { label: "Target Roles", value: "Full-Stack · Backend · AI Systems" },
