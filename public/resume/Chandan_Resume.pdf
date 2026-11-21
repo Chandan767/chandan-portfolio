@@ -1,0 +1,36 @@
+%PDF-1.4
+1 0 obj<< /Type /Catalog /Pages 2 0 R >>endobj
+2 0 obj<< /Type /Pages /Kids [3 0 R] /Count 1 >>endobj
+3 0 obj<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 4 0 R >> >> /Contents 5 0 R >>endobj
+4 0 obj<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>endobj
+5 0 obj<< /Length 936 >>stream
+BT
+/F1 12 Tf
+50 740 Td (Chandan @Chandan767 - Full-Stack & Integration Engineer) Tj
+0 -20 Td (Email: chandan.76762@gmail.com | GitHub: github.com/Chandan767) Tj
+0 -20 Td () Tj
+0 -20 Td (CORE PRODUCTION OWNERSHIP) Tj
+0 -20 Td (* 967+ production commits #1 contributor across full-stack monorepo) Tj
+0 -20 Td (* 161 PostgreSQL models Prisma ORM, PgBouncer pooling, composite indexing) Tj
+0 -20 Td (* 88 API route modules, 91 controllers, L1/L2 Redis session caching) Tj
+0 -20 Td (* 730+ TypeScript/React modules serving 15+ campuses and 450+ active users) Tj
+0 -20 Td () Tj
+0 -20 Td (FEATURED SYSTEMS) Tj
+0 -20 Td (* Enterprise EdTech & Educator Growth Platform LAC, BI, MOOC, OWASP) Tj
+0 -20 Td (* Zoho -> NeverSkip Enterprise API Integration OAuth 2.0, Idempotent Upserts) Tj
+0 -20 Td (* n8n Slack -> Google Drive Automation Pipeline Event-Driven Ops) Tj
+0 -20 Td (* Diabetes Prediction System Python, Scikit-learn, FastAPI/Flask) Tj
+ET
+endstream endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000056 00000 n 
+0000000111 00000 n 
+0000000235 00000 n 
+0000000303 00000 n 
+trailer<< /Size 6 /Root 1 0 R >>
+startxref
+1288
+%%EOF
